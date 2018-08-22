@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import math
 
@@ -262,7 +262,7 @@ if __name__ == "__main__":
         new_size = get_new_size(my_width, image)
         image = cv2.resize(src=image, dsize=new_size)
         chars = func(image, new_size[1], new_size[0])
-        print("\x1b[;H", chars, '\x1b[0m', sep='')
+        print(''.join(["\x1b[;H", chars, '\x1b[0m']))
 
     else:
         if args.vid == '':
@@ -282,7 +282,7 @@ if __name__ == "__main__":
             try:
                 retval, image = cam.read()
                 image = cv2.resize(src=image, dsize=new_size)
-                print("\x1b[;H", func(image, new_size[1], new_size[0]), '\x1B[0m', sep='')
+                print(''.join(["\x1b[;H", func(image, new_size[1], new_size[0]), '\x1B[0m']))
                 print("FPS:", count / (time() - start_time))
                 count += 1
 
